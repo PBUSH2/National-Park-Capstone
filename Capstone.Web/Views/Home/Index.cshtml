@@ -1,0 +1,23 @@
+﻿@using Capstone.Web.Models;
+@model List<Park>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+@{ 
+    foreach(Park p in Model)
+    {
+        <div id="park">
+            <img src="~/Content/img/parks/@(p.ParkCode).jpg" />
+            <div id="parkinfo">
+                @Html.ActionLink(@p.Name, "Detail", "Park", new { id = @p.ParkCode }, null)
+                <h2>@p.Name</h2>
+                <p>@p.State</p>
+                <p>@p.Description</p>
+            </div>
+         </div>
+         
+    }
+}
