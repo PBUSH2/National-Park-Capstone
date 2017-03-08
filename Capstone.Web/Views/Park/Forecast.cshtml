@@ -1,0 +1,38 @@
+﻿@using Capstone.Web.Models
+@model List<Forecast>
+@{
+    ViewBag.Title = "Forecast";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Forecast</h2>
+<div id="tablediv">
+    <table>
+        <tr>
+            <td>Day</td>
+            <td>Description</td>
+            <td>High</td>
+            <td>Low</td>
+            <td>Recommended Attire</td>
+        </tr>
+        @{
+            foreach (Forecast f in Model)
+            {
+                <tr class="forecast">
+                    <td>@f.FiveDayForecastValue</td>
+                    <td>@f.ForeCast</td>
+                    <td>@f.High</td>
+                    <td>@f.Low</td>
+                    <td>@f.RecommendedAction()</td>
+
+
+
+                </tr>
+            }
+
+        }
+
+
+
+    </table>
+</div>
