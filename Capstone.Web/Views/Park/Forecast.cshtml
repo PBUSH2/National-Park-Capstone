@@ -7,6 +7,7 @@
 
 <h2>Forecast</h2>
 <div id="tablediv">
+   
     <table>
         <tr>
             <td>Day</td>
@@ -19,10 +20,10 @@
             foreach (Forecast f in Model)
             {
                 <tr class="forecast">
-                    <td>@f.FiveDayForecastValue</td>
+                    <td>@f.GetDay()</td>
                     <td>@f.ForeCast</td>
-                    <td>@f.High</td>
-                    <td>@f.Low</td>
+                    <td>@f.GetHighTemp()</td>
+                    <td>@f.GetLowTemp()</td>
                     <td>@f.RecommendedAction()</td>
 
 

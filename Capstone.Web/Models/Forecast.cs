@@ -7,11 +7,13 @@ namespace Capstone.Web.Models
 {
     public class Forecast
     {
+        private bool isFarenheit = false;
         public string ParkCode { get; set; }
         public int FiveDayForecastValue { get; set; }
-        public int Low { get; set; }
-        public int High { get; set; }
+        public double Low { get; set; }
+        public double High { get; set; }
         public string ForeCast { get; set; }
+        //public bool IsFarenheit { get; set; }
 
         public string RecommendedAction()
         {
@@ -53,6 +55,54 @@ namespace Capstone.Web.Models
                 four = "  and be aware that exposure to frigid temperatures could be dangerous to your health";
             }
             return one + two + three + four;
+        }
+
+        public string GetDay()
+        {
+            if(FiveDayForecastValue == 1)
+            {
+                return DateTime.Now.DayOfWeek.ToString();
+            }
+            else if (FiveDayForecastValue == 2)
+            {
+                return DateTime.Today.AddDays(1.00).DayOfWeek.ToString();
+            }
+            else if(FiveDayForecastValue == 3)
+            {
+                return DateTime.Today.AddDays(2.00).DayOfWeek.ToString();
+            }
+            else if (FiveDayForecastValue == 4)
+            {
+                return DateTime.Today.AddDays(3.00).DayOfWeek.ToString();
+            }
+            else 
+            {
+                return DateTime.Today.AddDays(4.00).DayOfWeek.ToString();
+            }
+        }
+
+        public int GetHighTemp()
+        {
+            if(isFarenheit)
+            {
+                return (int)High;
+            }
+            else
+            {
+                int tempInCelsius = (int)((High - 32) * (double)(.56));
+                return tempInCelsius;
+            }
+        }
+        public int GetLowTemp()
+        {
+            if (isFarenheit)
+            {
+                return (int)Low;
+            }
+            else
+            {
+                return (int)((Low - 32) * (double)(.56));
+            }
         }
 
     }
