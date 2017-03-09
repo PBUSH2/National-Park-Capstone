@@ -7,7 +7,7 @@ namespace Capstone.Web.Models
 {
     public class Forecast
     {
-        private bool isFarenheit = false;
+        public int IsFarenheit { get; set; }
         public string ParkCode { get; set; }
         public int FiveDayForecastValue { get; set; }
         public double Low { get; set; }
@@ -83,7 +83,7 @@ namespace Capstone.Web.Models
 
         public int GetHighTemp()
         {
-            if(isFarenheit)
+            if(IsFarenheit == 1)
             {
                 return (int)High;
             }
@@ -95,7 +95,7 @@ namespace Capstone.Web.Models
         }
         public int GetLowTemp()
         {
-            if (isFarenheit)
+            if (IsFarenheit == 1)
             {
                 return (int)Low;
             }

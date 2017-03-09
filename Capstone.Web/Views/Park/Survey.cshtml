@@ -1,0 +1,26 @@
+﻿@using Capstone.Web.Models;
+@model Survey
+@{
+    ViewBag.Title = "Survey";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Survey</h2>
+@using (Html.BeginForm("SurveyResult", "Survey", FormMethod.Post))
+{
+    @Html.Label("FavoriteParkSelected", "Please select favorite park")
+    @Html.DropDownListFor(m => m.FavoriteParkSelected, Survey.FavoritePark)
+
+    @Html.Label("EmailAddress", "email address: ")
+    @Html.TextBoxFor(m => m.EmailAddress)
+
+    @Html.Label("State", "State: ")
+    @Html.TextBoxFor(m => m.State)
+
+    @Html.Label("ActivityLevel", "What is your activity level?")
+    @Html.DropDownListFor(m => m.ActivityLevel, Survey.PhysicalActivityLevel)
+
+
+
+    <button>Submit!</button>
+}

@@ -25,8 +25,14 @@ namespace Capstone.Web.Controllers
         }
         public ActionResult Forecast(string id)
         {
+
             var forecast = weatherDal.GetForecast(id);
             return View("Forecast", forecast);
+        }
+        [HttpPost]
+        public ActionResult Forecast()
+        {
+            return View();
         }
     }
 }

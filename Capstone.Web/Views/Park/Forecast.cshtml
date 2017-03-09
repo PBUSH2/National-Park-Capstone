@@ -7,33 +7,41 @@
 
 <h2>Forecast</h2>
 <div id="tablediv">
-   
+
     <table>
-        <tr>
-            <td>Day</td>
-            <td>Description</td>
-            <td>High</td>
-            <td>Low</td>
-            <td>Recommended Attire</td>
-        </tr>
-        @{
-            foreach (Forecast f in Model)
-            {
-                <tr class="forecast">
-                    <td>@f.GetDay()</td>
-                    <td>@f.ForeCast</td>
-                    <td>@f.GetHighTemp()</td>
-                    <td>@f.GetLowTemp()</td>
-                    <td>@f.RecommendedAction()</td>
 
+    <tr>
+        <td>Day</td>
+        <td>Description</td>
+        <td>High</td>
+        <td>Low</td>
+        <td>Recommended Attire</td>
+    </tr>
+    @{
+        foreach (Forecast f in Model)
+        {
+            <tr class="forecast">
+                <td>@f.GetDay()</td>
+                <td>@f.ForeCast</td>
+                <td>@f.GetHighTemp()</td>
+                <td>@f.GetLowTemp()</td>
+                <td>@f.RecommendedAction()</td>
 
+            </tr>
 
-                </tr>
-            }
-
+        }
+</table>
+           @using (Html.BeginForm("Forecast", "Park", FormMethod.Post))
+           {
+            @Html.RadioButtonFor(m => , 1, false) F
+            @Html.RadioButtonFor(m => m.NumberOfYears, 3, false) C
+               <button>change</button>
+           }
         }
 
 
 
-    </table>
+   
 </div>
+
+
