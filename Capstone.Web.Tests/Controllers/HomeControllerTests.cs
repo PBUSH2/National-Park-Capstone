@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Web.Mvc;
+using Capstone.Web.DAL;
 
 namespace Capstone.Web.Controllers.Tests
 {
@@ -16,7 +17,9 @@ namespace Capstone.Web.Controllers.Tests
         public void HomeController_IndexAction_ReturnIndexView()
         {
             //Arrange
-            HomeController controller = new HomeController();
+            string connectionString = @"Data Source=.\SQLEXPRESS;Initial Catalog=npgeek;User ID=te_student;Password=sqlserver1";
+            IParkDAL dal = new ParkSqlDAL(connectionString);
+            HomeController controller = new HomeController(dal);
 
             //Act
             ViewResult result = controller.Index() as ViewResult;

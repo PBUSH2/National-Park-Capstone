@@ -25,7 +25,7 @@ namespace Capstone.Web.Controllers
         public ActionResult Index(Survey survey)
         {
             surveyDal.SaveSurvey(survey);
-            return RedirectToAction("SurveyResult", "Survey", surveyDal.SaveSurvey(survey));
+            return RedirectToAction("SurveyResult", "Survey");
         }
         public ActionResult SurveyResult(Survey survey)
         {

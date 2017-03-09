@@ -10,7 +10,8 @@ namespace Capstone.Web.DAL
     public class SurveySqlDAL : ISurveyDAL
     {
         private string connectionString;
-        private const string SQL_InsertSurvey = "INSERT INTO survey_result VALUES (@surveyId, @parkCode, @emailAddress, @state, @activityLevel);";
+        private const string SQL_InsertSurvey = "INSERT INTO survey_result VALUES (@parkCode, @emailAddress, @state, @activityLevel);";
+        private const string SQL_FindTopPark = "  SELECT top 1 parkName from park inner join survey_result on park.parkCode = survey_result.parkCode group by survey_result.parkCode order by count(*) desc;";
 
         public SurveySqlDAL(string connectionString)
         {
@@ -26,7 +27,7 @@ namespace Capstone.Web.DAL
                     conn.Open();
 
                     SqlCommand cmd = new SqlCommand(SQL_InsertSurvey, conn);
-                    cmd.Parameters.AddWithValue("@surveyId", newSurvey.SurveryId);
+
                     cmd.Parameters.AddWithValue("@parkCode", newSurvey.ParkCode);
                     cmd.Parameters.AddWithValue("@emailAddress", newSurvey.EmailAddress);
                     cmd.Parameters.AddWithValue("@state", newSurvey.State);
@@ -36,10 +37,31 @@ namespace Capstone.Web.DAL
                     return rowsAffected > 0;
                 }
             }
-            catch(SqlException ex)
+            catch (SqlException ex)
             {
                 throw;
             }
         }
+
+        //public string FindTopPark()
+        //{
+        //    try
+        //    {
+        //        using (SqlConnection conn = new SqlConnection(connectionString))
+        //        {
+        //            conn.Open();
+
+        //            SqlCommand cmd = new SqlCommand(SQL_FindTopPark, conn);
+        //            SqlDataReader = cmd.ExecuteReader();
+
+        //        }
+
+
+        //    }
+        //    catch (Exception)
+        //    {
+
+        //        throw;
+        //    }
     }
 }
