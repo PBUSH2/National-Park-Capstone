@@ -10,7 +10,12 @@ namespace Capstone.Web.Models
     public class FiveDayForecast
     {
         private List<Forecast> fiveDayForecast = new List<Forecast>();
-        public bool IsFarenheit { get; set; }
+        public bool isFarenheit = true;
+        public bool IsFarenheit
+        {
+            get { return isFarenheit; }
+            set { isFarenheit = value; }
+        }
 
         private IWeatherDAL dal;
         public FiveDayForecast(IWeatherDAL dal, string id)
@@ -31,6 +36,35 @@ namespace Capstone.Web.Models
             }
             return id;
         }
+        public double GetTempInCelsius(double temp)
+        {
+            double tempInCelsius = ((temp - 32) * (double)(.56));
+            return tempInCelsius;
+        }
+
+        //public int GetHighTemp()
+        //{
+        //    if (IsFarenheit)
+        //    {
+        //        return (int)High;
+        //    }
+        //    else
+        //    {
+        //        int tempInCelsius = (int)((High - 32) * (double)(.56));
+        //        return tempInCelsius;
+        //    }
+        //}
+        //public int GetLowTemp()
+        //{
+        //    if (IsFarenheit)
+        //    {
+        //        return (int)Low;
+        //    }
+        //    else
+        //    {
+        //        return (int)((Low - 32) * (double)(.56));
+        //    }
+        //}
     }
 }     
 

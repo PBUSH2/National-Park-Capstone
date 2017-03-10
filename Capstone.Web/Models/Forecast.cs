@@ -80,10 +80,10 @@ namespace Capstone.Web.Models
                 return DateTime.Today.AddDays(4.00).DayOfWeek.ToString();
             }
         }
-
+        
         //public int GetHighTemp()
         //{
-        //    if(IsFarenheit)
+        //    if (IsFarenheit)
         //    {
         //        return (int)High;
         //    }

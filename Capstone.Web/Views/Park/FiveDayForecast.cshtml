@@ -11,12 +11,12 @@
 @using (Html.BeginForm("FiveDayForecast", "Park", new { id = Model.GetId() }, FormMethod.Post))
 {
 
-        <div id="radiobuttons">
-            @Html.RadioButtonFor(m => m.IsFarenheit, false, true)F
-            @Html.RadioButtonFor(m => m.IsFarenheit, true, false)C
-            <button>submit</button>
-        </div>
-    
+<div id="radiobuttons">
+    @Html.RadioButtonFor(m => m.IsFarenheit, false, false) F
+    @Html.RadioButtonFor(m => m.IsFarenheit, true, false) C
+    <button>submit</button>
+</div>
+
 }
 
 
@@ -30,17 +30,41 @@
         <td>Recommended Attire</td>
     </tr>
     @{List<Forecast> list = Model.GetForecast();
-        foreach (Forecast f in list)
+    foreach (Forecast f in list)
+    {
+    <tr>
+        <td>@f.GetDay()</td>
+        <td>@f.ForeCast</td>
+
+        @if (Model.IsFarenheit)
         {
-            <tr>
-                <td>@f.GetDay()</td>
-                <td>@f.ForeCast</td>
-                <td>@f.Low</td>
-                <td>@f.High</td>
-                <td>@f.RecommendedAction()</td>
-
-
-            </tr>
+        <td>
+            @f.Low
+        </td>
         }
+        else
+        {
+        <td>
+        @Model.GetTempInCelsius(f.Low)
+        </td>
+        } 
+        @if (Model.IsFarenheit)
+        {
+            <td>
+                @f.High
+            </td>
+        }
+        else
+        {
+            <td>
+                @Model.GetTempInCelsius(f.High)
+            </td>
+        }
+        <td>
+<td>@f.RecommendedAction()</td>
+
+
+    </tr>
+    }
     }
 </table>
