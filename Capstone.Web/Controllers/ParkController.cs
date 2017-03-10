@@ -29,11 +29,24 @@ namespace Capstone.Web.Controllers
             var forecast = weatherDal.GetForecast(id);
             return View("Forecast", forecast);
         }
-        [HttpPost]
-        public ActionResult Forecast()
+        public ActionResult FiveDayForecast(string id)
         {
-            return View();
+            FiveDayForecast forecast = new FiveDayForecast(weatherDal, id);
+               
+            return View("FiveDayForecast", forecast);
         }
+        [HttpPost]
+        public ActionResult FiveDayForecast(string id, bool isFarenheit)
+        {
+
+            return RedirectToAction("FiveDayForecast");
+        }
+        //[HttpPost]
+        //public ActionResult Forecast(int id)
+        //{
+
+        //    return RedirectToAction("Forecast");
+        //}
     }
 }
 

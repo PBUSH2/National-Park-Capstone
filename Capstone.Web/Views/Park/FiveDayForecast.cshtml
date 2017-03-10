@@ -1,0 +1,46 @@
+﻿@using Capstone.Web.Models
+@model FiveDayForecast
+@{
+    ViewBag.Title = "FiveDayForecast";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>FiveDayForecast</h2>
+
+
+@using (Html.BeginForm("FiveDayForecast", "Park", new { id = Model.GetId() }, FormMethod.Post))
+{
+
+        <div id="radiobuttons">
+            @Html.RadioButtonFor(m => m.IsFarenheit, false, true)F
+            @Html.RadioButtonFor(m => m.IsFarenheit, true, false)C
+            <button>submit</button>
+        </div>
+    
+}
+
+
+
+<table>
+    <tr>
+        <td>Day</td>
+        <td>Description</td>
+        <td>Low</td>
+        <td>High</td>
+        <td>Recommended Attire</td>
+    </tr>
+    @{List<Forecast> list = Model.GetForecast();
+        foreach (Forecast f in list)
+        {
+            <tr>
+                <td>@f.GetDay()</td>
+                <td>@f.ForeCast</td>
+                <td>@f.Low</td>
+                <td>@f.High</td>
+                <td>@f.RecommendedAction()</td>
+
+
+            </tr>
+        }
+    }
+</table>

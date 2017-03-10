@@ -27,6 +27,6 @@
         <li>Number of Animal Species: @Model.NumberOfAnimalSpecies </li>
         <li>Entry Fee: @Model.EntryFee.ToString("C")</li>
     </ul>
-    @Html.ActionLink($"Five Day Forecast for {@Model.Name}", "Forecast", "Park", new { id = @Model.ParkCode }, null)
+    @Html.ActionLink($"Five Day Forecast for {@Model.Name}", "FiveDayForecast", "Park", new { id = @Model.ParkCode }, null)
 </div>
 

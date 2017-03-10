@@ -239,3 +239,7 @@ table{
 #person{
     margin-bottom: 100px;
 }
+#radiobuttons{
+    position: relative;
+    top: -90px;
+}
