@@ -206,3 +206,36 @@ table{
     text-decoration:none;
 
 }
+
+#surveyresult{
+    margin-left: 40%;
+}
+.survey div{
+    margin: 10px;
+    margin-left: 40%;
+}
+#detailimage{
+    margin: 10px;
+    display: inline-block;
+    width: 30%;
+}
+#wholedetail{
+    margin-left: 15%;
+    font-family: sans-serif;
+}
+#topdiv{
+    display:flex;
+}
+#topdiv div{
+    display:inline-block;
+    margin-left: 10%;
+    width: 30%;
+}
+#quote{
+    font-size:larger;
+    font-style: italic;
+    margin-bottom: 15px;
+}
+#person{
+    margin-bottom: 100px;
+}

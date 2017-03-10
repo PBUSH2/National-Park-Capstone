@@ -8,19 +8,42 @@
 <h2>Survey</h2>
 @using (Html.BeginForm("Index", "Survey", FormMethod.Post))
 {
-    @Html.Label("ParkCode", "Please select favorite park")
-    @Html.DropDownListFor(m => m.ParkCode, Survey.FavoritePark)
+    <div class="survey">
+        <div>
+            @Html.Label("ParkCode", "Please select favorite park")
+        </div>
+        <div>
+            @Html.DropDownListFor(m => m.ParkCode, Survey.FavoritePark)
+        </div>
+    </div>
+    <div class="survey">
+        <div>
+            @Html.Label("EmailAddress", "email address: ")
+        </div>
+        <div>
+            @Html.TextBoxFor(m => m.EmailAddress)
+        </div>
+    </div>
+    <div class="survey">
+        <div>
+            @Html.Label("State", "State: ")
+        </div>
+        <div>
+            @Html.TextBoxFor(m => m.State)
+        </div>
+    </div>
+    <div class="survey">
+        <div>
+            @Html.Label("ActivityLevel", "What is your activity level?")
+        </div>
+        <div>
+            @Html.DropDownListFor(m => m.ActivityLevel, Survey.PhysicalActivityLevel)
+        </div>
+        <div>
+            <button>Submit!</button>
+        </div>
+    </div>
 
-    @Html.Label("EmailAddress", "email address: ")
-    @Html.TextBoxFor(m => m.EmailAddress)
 
-    @Html.Label("State", "State: ")
-    @Html.TextBoxFor(m => m.State)
-
-    @Html.Label("ActivityLevel", "What is your activity level?")
-    @Html.DropDownListFor(m => m.ActivityLevel, Survey.PhysicalActivityLevel)
-
-
-
-    <button>Submit!</button>
+  
 }

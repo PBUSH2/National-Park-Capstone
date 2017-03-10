@@ -6,22 +6,27 @@
 }
 
 <h2>@Model.Name</h2>
-<img src="~/Content/img/parks/@(Model.ParkCode).jpg" />
-<p>"@Model.InspirationalQuote"</p>
-<p>-@Model.InspirationQuoteSource</p>
-<p>@Model.Description</p>
-<ul>
-    <li>State: @Model.State</li>
-    <li>Acreage: @Model.Acreage</li>
-    <li>Elevation: @Model.Elevation</li>
-    <li>Miles of Trail: @Model.MilesOfTrail</li>
-    <li>Number of Campsites: @Model.NumberOfCampsites</li>
-    <li>Climate: @Model.Climate</li>
-    <li>Year Founded: @Model.YearFounded</li>
-    <li>Annual Visitor Count: @Model.AnnualVisitorCount</li>
-    <li>Number of Animal Species: @Model.NumberOfAnimalSpecies </li>
-    <li>Entry Fee: @Model.EntryFee.ToString("C")</li>
-</ul>
-    @Html.ActionLink("Five Day Forecast", "Forecast", "Park", new {id = @Model.ParkCode}, null)
-
+<div id="wholedetail">
+    <div id="topdiv">
+        <img id="detailimage" src="~/Content/img/parks/@(Model.ParkCode).jpg" />
+        <div>
+            <p id="quote">"@Model.InspirationalQuote"</p>
+            <p id="person">-@Model.InspirationQuoteSource</p>
+            <p>@Model.Description</p>
+        </div>
+    </div>
+    <ul>
+        <li>State: @Model.State</li>
+        <li>Acreage: @Model.Acreage</li>
+        <li>Elevation: @Model.Elevation</li>
+        <li>Miles of Trail: @Model.MilesOfTrail</li>
+        <li>Number of Campsites: @Model.NumberOfCampsites</li>
+        <li>Climate: @Model.Climate</li>
+        <li>Year Founded: @Model.YearFounded</li>
+        <li>Annual Visitor Count: @Model.AnnualVisitorCount</li>
+        <li>Number of Animal Species: @Model.NumberOfAnimalSpecies </li>
+        <li>Entry Fee: @Model.EntryFee.ToString("C")</li>
+    </ul>
+    @Html.ActionLink($"Five Day Forecast for {@Model.Name}", "Forecast", "Park", new { id = @Model.ParkCode }, null)
+</div>
 

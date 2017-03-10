@@ -10,32 +10,36 @@
 
     <table>
 
-    <tr>
-        <td>Day</td>
-        <td>Description</td>
-        <td>High</td>
-        <td>Low</td>
-        <td>Recommended Attire</td>
-    </tr>
-    @{
-        foreach (Forecast f in Model)
-        {
-            <tr class="forecast">
-                <td>@f.GetDay()</td>
-                <td>@f.ForeCast</td>
-                <td>@f.GetHighTemp()</td>
-                <td>@f.GetLowTemp()</td>
-                <td>@f.RecommendedAction()</td>
+        <tr>
+            <td>Day</td>
+            <td>Description</td>
+            <td>High</td>
+            <td>Low</td>
+            <td>Recommended Attire</td>
 
-            </tr>
+        </tr>
+        @{
+            foreach (Forecast f in Model)
+            {
+                <tr class="forecast">
+                    <td>@f.GetDay()</td>
+                    <td>@f.ForeCast</td>
+                    <td>@f.GetHighTemp()</td>
+                    <td>@f.GetLowTemp()</td>
+                    <td>@f.RecommendedAction()</td>
+
+                </tr>
             }
         }
-</table>
+    </table>
+    @using (Html.BeginForm("Forecast", "Park", FormMethod.Post))
+    {
+        <div>
+            @Html.RadioButtonFor(m=> m.IsFarenheit, 1, false)F
+            @Html.RadioButtonFor(m=> m.IsFarenheit, 0, false)C
+        </div>
+    }
 
 
 
-
-   
 </div>
-
-
