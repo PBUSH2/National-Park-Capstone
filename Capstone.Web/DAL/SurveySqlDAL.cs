@@ -43,25 +43,37 @@ namespace Capstone.Web.DAL
             }
         }
 
-        //public string FindTopPark()
-        //{
-        //    try
-        //    {
-        //        using (SqlConnection conn = new SqlConnection(connectionString))
-        //        {
-        //            conn.Open();
+        public string FindTopPark()
+        {
+            string result = "";
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(connectionString))
+                {
+                    conn.Open();
 
-        //            SqlCommand cmd = new SqlCommand(SQL_FindTopPark, conn);
-        //            SqlDataReader = cmd.ExecuteReader();
+                    SqlCommand cmd = new SqlCommand(SQL_FindTopPark, conn);
+                    SqlDataReader reader = cmd.ExecuteReader();
 
-        //        }
+                    while (reader.Read())
+                    {
+                        Survey srv = new Survey();
+                        srv.TopPark = Convert.ToString(reader["parkName"]);
+                        result = srv.TopPark;
+                    }
+
+                }
+
+                return result;
 
 
-        //    }
-        //    catch (Exception)
-        //    {
+            }
+            catch (Exception)
+            {
 
-        //        throw;
-        //    }
+                throw;
+            }
+        }
     }
 }
+

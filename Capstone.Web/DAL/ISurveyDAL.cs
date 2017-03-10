@@ -9,5 +9,7 @@ namespace Capstone.Web.DAL
     public interface ISurveyDAL
     {
         bool SaveSurvey(Survey newSurvey);
+        string FindTopPark();
     }
+
 }

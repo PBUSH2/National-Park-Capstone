@@ -158,6 +158,7 @@
     <Content Include="Views\Park\Detail.cshtml" />
     <Content Include="Views\Park\Forecast.cshtml" />
     <Content Include="Views\Survey\Index.cshtml" />
+    <Content Include="Views\Survey\SurveyResult.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

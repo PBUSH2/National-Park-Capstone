@@ -11,6 +11,7 @@ namespace Capstone.Web.Controllers
     public class SurveyController : Controller
     {
         private ISurveyDAL surveyDal;
+
         // GET: Survey
         public SurveyController(ISurveyDAL surveyDal)
         {
@@ -27,9 +28,10 @@ namespace Capstone.Web.Controllers
             surveyDal.SaveSurvey(survey);
             return RedirectToAction("SurveyResult", "Survey");
         }
-        public ActionResult SurveyResult(Survey survey)
+        public ActionResult SurveyResult()
         {
-            return View("SurveyResult", survey);
+            string topPark = surveyDal.FindTopPark();
+            return View("SurveyResult", (object)topPark);
         }
     }
 }

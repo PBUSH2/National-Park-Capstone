@@ -14,6 +14,7 @@ namespace Capstone.Web.Models
         public string State { get; set; }
         public string ActivityLevel { get; set; }
         public string FavoriteParkSelected { get; set; }
+        public string TopPark { get; set; }
 
         public static List<SelectListItem> PhysicalActivityLevel
         {
