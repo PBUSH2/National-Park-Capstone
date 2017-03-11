@@ -32,7 +32,7 @@ namespace Capstone.Web.DAL
                     {
                         Forecast forecast = new Forecast()
                         {
-                            ParkCode = Convert.ToString(reader["parkCode"]),
+                            //ParkCode = Convert.ToString(reader["parkCode"]),
                             FiveDayForecastValue= Convert.ToInt32(reader["fiveDayForecastValue"]),
                             ForeCast = Convert.ToString(reader["forecast"]),
                             High = Convert.ToInt32(reader["high"]),

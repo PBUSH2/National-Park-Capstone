@@ -5,7 +5,7 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>FiveDayForecast</h2>
+<h2>FiveDayForecast for</h2>
 
 
 @using (Html.BeginForm("FiveDayForecast", "Park", new { id = Model.Id }, FormMethod.Post))
@@ -27,7 +27,7 @@
         <td>High</td>
         <td>Recommended Attire</td>
     </tr>
-    @{List<Forecast> list = Model.GetForecast();
+    @{List<Forecast> list = Model.GetForecast(Model.Id);
     foreach (Forecast f in list)
     {
     <tr>

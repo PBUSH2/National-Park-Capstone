@@ -7,13 +7,12 @@ namespace Capstone.Web.Models
 {
     public class Forecast
     {
-        public string ParkCode { get; set; }
+        //public string ParkCode { get; set; }
         public int FiveDayForecastValue { get; set; }
         public double Low { get; set; }
         public double High { get; set; }
         public string ForeCast { get; set; }
  
-
         public string RecommendedAction()
         {
             string one = "";
@@ -78,34 +77,8 @@ namespace Capstone.Web.Models
             {
                 return DateTime.Today.AddDays(4.00).DayOfWeek.ToString();
             }
-        }
-        
-     
-
+        }       
     }
 }   
 
 
-//public int GetHighTemp()
-        //{
-        //    if (IsFarenheit)
-        //    {
-        //        return (int)High;
-        //    }
-        //    else
-        //    {
-        //        int tempInCelsius = (int)((High - 32) * (double)(.56));
-        //        return tempInCelsius;
-        //    }
-        //}
-        //public int GetLowTemp()
-        //{
-        //    if (IsFarenheit)
-        //    {
-        //        return (int)Low;
-        //    }
-        //    else
-        //    {
-        //        return (int)((Low - 32) * (double)(.56));
-        //    }
-        //}
