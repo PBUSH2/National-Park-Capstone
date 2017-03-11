@@ -8,12 +8,12 @@
 <h2>FiveDayForecast</h2>
 
 
-@using (Html.BeginForm("FiveDayForecast", "Park", new { id = Model.GetId() }, FormMethod.Post))
+@using (Html.BeginForm("FiveDayForecast", "Park", new { id = Model.Id }, FormMethod.Post))
 {
 
 <div id="radiobuttons">
-    @Html.RadioButtonFor(m => m.IsFarenheit, false, false) F
-    @Html.RadioButtonFor(m => m.IsFarenheit, true, false) C
+    @Html.RadioButtonFor(m => m.IsFarenheit, true) F
+    @Html.RadioButtonFor(m => m.IsFarenheit, false) C
     <button>submit</button>
 </div>
 

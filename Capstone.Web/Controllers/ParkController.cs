@@ -23,23 +23,34 @@ namespace Capstone.Web.Controllers
             var park = dal.GetAllParks().Find(x => x.ParkCode == id);
             return View("Detail", park);
         }
-        public ActionResult Forecast(string id)
-        {
+        //public ActionResult Forecast(string id)
+        //{
 
-            var forecast = weatherDal.GetForecast(id);
-            return View("Forecast", forecast);
-        }
+        //    var forecast = weatherDal.GetForecast(id);
+        //    return View("Forecast", forecast);
+        //}
         public ActionResult FiveDayForecast(string id)
         {
-            FiveDayForecast forecast = new FiveDayForecast(weatherDal, id);
-               
+            FiveDayForecast forecast;
+            if (Session["forecast"] != null)
+            {
+                forecast = Session["forecast"] as FiveDayForecast;
+            }
+            else
+            {
+                forecast = new FiveDayForecast(weatherDal, id);
+            }
+
             return View("FiveDayForecast", forecast);
         }
         [HttpPost]
-        public ActionResult FiveDayForecast(string id, bool isFarenheit)
+        public ActionResult FiveDayForecast(string id, bool IsFarenheit)
         {
-
-            return RedirectToAction("FiveDayForecast");
+            FiveDayForecast forecast = new FiveDayForecast(weatherDal, id);
+            forecast.IsFarenheit = IsFarenheit;
+            Session["forecast"] = forecast;
+            
+            return RedirectToAction("FiveDayForecast", Session["forecast"]);
         }
         //[HttpPost]
         //public ActionResult Forecast(int id)

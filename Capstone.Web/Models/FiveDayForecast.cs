@@ -9,24 +9,28 @@ namespace Capstone.Web.Models
 {
     public class FiveDayForecast
     {
-        private List<Forecast> fiveDayForecast = new List<Forecast>();
-        public bool isFarenheit = true;
-        public bool IsFarenheit
-        {
-            get { return isFarenheit; }
-            set { isFarenheit = value; }
-        }
-
         private IWeatherDAL dal;
+
         public FiveDayForecast(IWeatherDAL dal, string id)
         {
             this.dal = dal;
+            this.Id = id;
             fiveDayForecast = dal.GetForecast(id);
         }
+
+        private List<Forecast> fiveDayForecast = new List<Forecast>();
+
+        public string Id { get; set; }
+
+
+
+        public bool IsFarenheit { get; set; }
+   
         public List<Forecast> GetForecast()
         {
             return fiveDayForecast;
         }
+
         public string GetId()
         {
             string id = "";
@@ -36,35 +40,12 @@ namespace Capstone.Web.Models
             }
             return id;
         }
+
         public double GetTempInCelsius(double temp)
         {
             double tempInCelsius = ((temp - 32) * (double)(.56));
             return tempInCelsius;
         }
-
-        //public int GetHighTemp()
-        //{
-        //    if (IsFarenheit)
-        //    {
-        //        return (int)High;
-        //    }
-        //    else
-        //    {
-        //        int tempInCelsius = (int)((High - 32) * (double)(.56));
-        //        return tempInCelsius;
-        //    }
-        //}
-        //public int GetLowTemp()
-        //{
-        //    if (IsFarenheit)
-        //    {
-        //        return (int)Low;
-        //    }
-        //    else
-        //    {
-        //        return (int)((Low - 32) * (double)(.56));
-        //    }
-        //}
     }
 }     
 
@@ -88,4 +69,30 @@ namespace Capstone.Web.Models
         //}
         //public bool isFarenheit = true;
 
+        //}        
+        
+    
+    
+    //public int GetHighTemp()
+        //{
+        //    if (IsFarenheit)
+        //    {
+        //        return (int)High;
+        //    }
+        //    else
+        //    {
+        //        int tempInCelsius = (int)((High - 32) * (double)(.56));
+        //        return tempInCelsius;
+        //    }
+        //}
+        //public int GetLowTemp()
+        //{
+        //    if (IsFarenheit)
+        //    {
+        //        return (int)Low;
+        //    }
+        //    else
+        //    {
+        //        return (int)((Low - 32) * (double)(.56));
+        //    }
         //}
