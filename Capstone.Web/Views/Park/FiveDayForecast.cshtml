@@ -12,14 +12,12 @@
 {
 
 <div id="radiobuttons">
-    @Html.RadioButtonFor(m => m.IsFarenheit, true) F
-    @Html.RadioButtonFor(m => m.IsFarenheit, false) C
+    @Html.RadioButtonFor(m => m.IsFahrenheit, true) F
+    @Html.RadioButtonFor(m => m.IsFahrenheit, false) C
     <button>submit</button>
 </div>
 
 }
-
-
 
 <table>
     <tr>
@@ -36,7 +34,7 @@
         <td>@f.GetDay()</td>
         <td>@f.ForeCast</td>
 
-        @if (Model.IsFarenheit)
+        @if (Model.IsFahrenheit)
         {
         <td>
             @f.Low
@@ -48,7 +46,7 @@
         @Model.GetTempInCelsius(f.Low)
         </td>
         } 
-        @if (Model.IsFarenheit)
+        @if (Model.IsFahrenheit)
         {
             <td>
                 @f.High

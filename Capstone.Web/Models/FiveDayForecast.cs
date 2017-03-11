@@ -23,8 +23,7 @@ namespace Capstone.Web.Models
         public string Id { get; set; }
 
 
-
-        public bool IsFarenheit { get; set; }
+        public bool IsFahrenheit { get; set; }
    
         public List<Forecast> GetForecast()
         {

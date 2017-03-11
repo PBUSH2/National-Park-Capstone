@@ -35,6 +35,7 @@ namespace Capstone.Web.Controllers
             if (Session["forecast"] != null)
             {
                 forecast = Session["forecast"] as FiveDayForecast;
+                forecast.Id = id;
             }
             else
             {
@@ -44,10 +45,11 @@ namespace Capstone.Web.Controllers
             return View("FiveDayForecast", forecast);
         }
         [HttpPost]
-        public ActionResult FiveDayForecast(string id, bool IsFarenheit)
+        public ActionResult FiveDayForecast(string id, bool IsFahrenheit)
         {
             FiveDayForecast forecast = new FiveDayForecast(weatherDal, id);
-            forecast.IsFarenheit = IsFarenheit;
+            forecast.Id = id;
+            forecast.IsFahrenheit = IsFahrenheit;
             Session["forecast"] = forecast;
             
             return RedirectToAction("FiveDayForecast", Session["forecast"]);
