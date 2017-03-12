@@ -33,23 +33,23 @@
                     Low:
                     @if (Model.IsFahrenheit)
                     {
-                    @(f.Low)<p>°F</p>
+                        @(f.Low)<p>°F</p>
                     }
                     else
                     {
-                    @Model.GetTempInCelsius(f.Low)<p>°C</p>
+                        @Model.GetTempInCelsius(f.Low)<p>°C</p>
                     }
                 </div>
                 <div class="high">
                     High:
                     @if (Model.IsFahrenheit)
                     {
-                    @f.High<p>°F</p>
+                        @f.High<p>°F</p>
                     }
                     else
                     {
                         @Model.GetTempInCelsius(f.High)<p>°C</p>
-                                        }
+                    }
                 </div>
                 <div class="recommendation">
                     <p>We recommend you:</p>

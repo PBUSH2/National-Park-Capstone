@@ -12,8 +12,8 @@
         <div id="park">
             <img src="~/Content/img/parks/@(p.ParkCode).jpg" />
             <div id="parkinfo">               
-                <h2>@Html.ActionLink(p.Name, "Detail", "Park", new { id = p.ParkCode }, new { @class = "parklink" })</h2>
-                <p>@p.State</p>
+                <h2>@Html.ActionLink(p.Name, "Detail", "Park", new { id = p.ParkCode }, new { @id = "parklink" })</h2>
+                <p id="locatedin">Located in @p.State</p>
                 <p>@p.Description</p>
             </div>
          </div>

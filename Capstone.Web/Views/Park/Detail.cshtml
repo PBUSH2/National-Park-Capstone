@@ -11,23 +11,30 @@
     <div id="topdiv">
         <img id="detailimage" src="~/Content/img/parks/@(Model.ParkCode).jpg" />
         <div>
-            <p id="quote">"@Model.InspirationalQuote"</p>
-            <p id="person">-@Model.InspirationQuoteSource</p>
-            <p>@Model.Description</p>
+            <div id="quotediv">
+                <p id="quote">"@Model.InspirationalQuote"</p>
+                <p id="person">-@Model.InspirationQuoteSource</p>
+            </div>
+            <p id="description">@Model.Description</p>
         </div>
     </div>
-    <ul>
-        <li>State: @Model.State</li>
-        <li>Acreage: @Model.Acreage</li>
-        <li>Elevation: @Model.Elevation</li>
-        <li>Miles of Trail: @Model.MilesOfTrail</li>
-        <li>Number of Campsites: @Model.NumberOfCampsites</li>
-        <li>Climate: @Model.Climate</li>
-        <li>Year Founded: @Model.YearFounded</li>
-        <li>Annual Visitor Count: @Model.AnnualVisitorCount</li>
-        <li>Number of Animal Species: @Model.NumberOfAnimalSpecies </li>
-        <li>Entry Fee: @Model.EntryFee.ToString("C")</li>
-    </ul>
+    <div id="detaillistdiv">
+        <ul>
 
+            <li>State: @Model.State</li>
+            <li>Acreage: @Model.Acreage.ToString("N0")</li>
+            <li>Elevation: @Model.Elevation.ToString("N0") ft.</li>
+            <li>Miles of Trail: @Model.MilesOfTrail.ToString("N0")</li>
+            <li>Number of Campsites: @Model.NumberOfCampsites.ToString("N0")</li>
+        </ul>
+        <ul>
+            <li>Climate: @Model.Climate</li>
+            <li>Year Founded: @Model.YearFounded</li>
+            <li>Annual Visitor Count: @Model.AnnualVisitorCount.ToString("N0")</li>
+            <li>Number of Animal Species: @Model.NumberOfAnimalSpecies.ToString("N0") </li>
+            <li>Entry Fee: @Model.EntryFee.ToString("C")</li>
+
+        </ul>
+    </div>
 </div>
 

@@ -8,7 +8,7 @@
 </head>
 <body>
     <header>
-        <img style="width:30%;" src="~/Content/img/logo.png" alt="National Park Weather Service" />
+        <a href="@Url.Action("Index", "Home")"><img style="width:30%;" src="~/Content/img/logo.png" alt="National Park Weather Service" /></a>
        
     </header>
     <nav>
@@ -16,7 +16,7 @@
             <li><a href="@Url.Action("Index", "Home")">Home</a></li>
             
             <li>@Html.ActionLink("Survey", "Index", "Survey")</li>
-          
+          </ul>
     </nav>
 
     <section id="main">

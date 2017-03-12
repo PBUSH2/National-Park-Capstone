@@ -22,8 +22,8 @@ header {
 /* Navigation Styles */
 nav {
     background-color: #f2f2f2;
-    margin: 0 0 1em 0;
-    padding: 0;
+    margin: 0 0 0 0;
+    /*padding: 0;*/
     border-bottom: 1px solid #ccc;
     border-top: 1px solid #ccc;
 }
@@ -65,6 +65,7 @@ footer {
 #main {
     width: 100%;
     flex: 1;
+    background-color: #e6ffe6;
 }
 
 
@@ -176,11 +177,14 @@ section.result {
     width: 10px;
     height: 10px;
 }
-
+/*index styling*/
 #park {
     display: flex;
+    border-bottom: 1px solid lightgray;
 }
-
+#locatedin{
+    text-align: center;
+}
     #park img {
         width: 40%;
         padding: 10px;
@@ -218,13 +222,24 @@ table {
     margin: 10px;
     margin-left: 40%;
 }
-
+/*detail styling*/
 #detailimage {
     margin: 10px;
     display: inline-block;
     width: 500px;
 }
-
+#detaillistdiv{
+    display: flex;
+}
+#detaillistdiv ul{
+    display: inline-block;
+}
+#detaillink{
+    position: center;
+}
+#detaillinkdiv {
+    text-align: center;
+}
 #wholedetail {
     margin-left: 15%;
     font-family: sans-serif;
@@ -234,22 +249,39 @@ table {
     display: flex;
 }
 
-    #topdiv div {
+    /*#topdiv div {
         display: inline-block;
         margin-left: 10%;
         width: 30%;
-    }
-
+    }*/
+#quotediv{
+    border: 3px ridge gray;
+    display:block;
+    width: 80%;
+    margin-top: 15px;
+    margin-right:15px;
+    margin-bottom: 30px;
+    text-align: center;
+}
 #quote {
-    font-size: larger;
+    font-size: x-large;
     font-style: italic;
     margin-bottom: 15px;
+    text-align: center;
+ 
+}
+#description{
+    display: block;
+    width: 80%;
+    margin-right: 15px;
 }
 
 #person {
-    margin-bottom: 100px;
+    margin-bottom: 15px;
+    display: block;
+    text-align: center;
 }
-
+/*forecast styling*/
 #radiobuttons {
    
     margin-top: 5px;
@@ -271,7 +303,7 @@ table {
     display: inline-block;
     width: 15%;
     margin: 10px;
-    border: 1px solid black;
+    border: 2px ridge gray;
     vertical-align: top;
     height:400px;
     background-color: lightblue;
@@ -324,9 +356,5 @@ div div div p{
     margin-top: 5px;
     margin-bottom: 5px;
 }
-#detaillink{
-    position: center;
-}
-#detaillinkdiv{
-    text-align:center;
-}
+
+
