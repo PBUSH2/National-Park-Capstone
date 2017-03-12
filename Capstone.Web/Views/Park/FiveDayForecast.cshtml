@@ -5,10 +5,10 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>FiveDayForecast for</h2>
+<h2>FiveDayForecast for @Model.ParkName</h2>
 
 
-@using (Html.BeginForm("FiveDayForecast", "Park", new { id = Model.Id }, FormMethod.Post))
+@using (Html.BeginForm("FiveDayForecast", "Park", new { id = Model.Id, name = Model.ParkName }, FormMethod.Post))
 {
 
 <div id="radiobuttons">

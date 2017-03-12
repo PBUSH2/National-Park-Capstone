@@ -23,20 +23,21 @@ namespace Capstone.Web.DAL
                 {
                     conn.Open();
 
-                    SqlCommand cmd = new SqlCommand("SELECT * from weather where parkCode = @parkcode", conn);
+                    SqlCommand cmd = new SqlCommand("SELECT * from weather join park on park.parkCode = weather.parkCode where park.parkCode = @parkcode", conn);
                     cmd.Parameters.AddWithValue("@parkcode", parkCode);
 
                     SqlDataReader reader = cmd.ExecuteReader();
 
-                    while(reader.Read())
+                    while (reader.Read())
                     {
                         Forecast forecast = new Forecast()
                         {
                             //ParkCode = Convert.ToString(reader["parkCode"]),
-                            FiveDayForecastValue= Convert.ToInt32(reader["fiveDayForecastValue"]),
+                            ParkName = Convert.ToString(reader["parkName"]),
+                            FiveDayForecastValue = Convert.ToInt32(reader["fiveDayForecastValue"]),
                             ForeCast = Convert.ToString(reader["forecast"]),
                             High = Convert.ToInt32(reader["high"]),
-                            Low  = Convert.ToInt32(reader["low"])
+                            Low = Convert.ToInt32(reader["low"])
                         };
                         forecastList.Add(forecast);
                     }
@@ -49,5 +50,7 @@ namespace Capstone.Web.DAL
             }
             return forecastList;
         }
+
+       
     }
 }

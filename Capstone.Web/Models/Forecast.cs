@@ -8,6 +8,7 @@ namespace Capstone.Web.Models
     public class Forecast
     {
         //public string ParkCode { get; set; }
+        public string ParkName { get; set; }
         public int FiveDayForecastValue { get; set; }
         public double Low { get; set; }
         public double High { get; set; }

@@ -7,6 +7,7 @@ using Capstone.Web.Models;
 
 namespace Capstone.Web.Models
 {
+
     public class FiveDayForecast
     {
         private IWeatherDAL dal;
@@ -21,14 +22,20 @@ namespace Capstone.Web.Models
         List<Forecast> fiveDayForecast;
 
         public string Id { get; set; }
-
+        public string ParkName { get; set; }
 
         public bool IsFahrenheit { get; set; }
-   
+
         public List<Forecast> GetForecast(string id)
         {
             List<Forecast> list = dal.GetForecast(id);
             return list;
+        }
+
+        public string GetParkName(string id)
+        {
+            string parkName = fiveDayForecast[0].ParkName;
+            return parkName;
         }
 
         //public string GetId()
@@ -47,6 +54,6 @@ namespace Capstone.Web.Models
             return tempInCelsius;
         }
     }
-}     
+}
 
 
