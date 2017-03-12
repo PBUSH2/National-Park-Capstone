@@ -29,7 +29,7 @@ namespace Capstone.Web.Controllers
         //    var forecast = weatherDal.GetForecast(id);
         //    return View("Forecast", forecast);
         //}
-        public ActionResult FiveDayForecast(string id, string name)
+        public ActionResult Forecast(string id, string name)
         {
             FiveDayForecast forecast;
             if (Session["forecast"] != null)
@@ -44,10 +44,10 @@ namespace Capstone.Web.Controllers
                 forecast.ParkName = name;
             }
 
-            return View("FiveDayForecast", forecast);
+            return View("Forecast", forecast);
         }
         [HttpPost]
-        public ActionResult FiveDayForecast(string id, bool IsFahrenheit, string name)
+        public ActionResult Forecast(string id, bool IsFahrenheit, string name)
         {
             FiveDayForecast forecast = new FiveDayForecast(weatherDal, id);
             forecast.Id = id;
@@ -55,14 +55,9 @@ namespace Capstone.Web.Controllers
             forecast.IsFahrenheit = IsFahrenheit;
             Session["forecast"] = forecast;
       
-            return RedirectToAction("FiveDayForecast", new { name = name });
+            return RedirectToAction("Forecast", new { name = name });
         }
-        //[HttpPost]
-        //public ActionResult Forecast(int id)
-        //{
 
-        //    return RedirectToAction("Forecast");
-        //}
     }
 }
 

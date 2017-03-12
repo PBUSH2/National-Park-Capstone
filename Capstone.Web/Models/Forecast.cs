@@ -9,9 +9,9 @@ namespace Capstone.Web.Models
     {
         //public string ParkCode { get; set; }
         public string ParkName { get; set; }
-        public int FiveDayForecastValue { get; set; }
+        public double FiveDayForecastValue { get; set; }
         public double Low { get; set; }
-        public double High { get; set; }
+        public int High { get; set; }
         public string ForeCast { get; set; }
  
         public string RecommendedAction()

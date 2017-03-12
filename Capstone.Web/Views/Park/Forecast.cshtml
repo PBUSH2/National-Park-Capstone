@@ -1,56 +1,62 @@
 ﻿@using Capstone.Web.Models
-@model List<Forecast>
+@model FiveDayForecast
 @{
     ViewBag.Title = "Forecast";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Forecast</h2>
-<div id="tablediv">
+<h2 id="forecastheading">Five Day Forecast for @Model.ParkName</h2>
 
-    <table>
+@using (Html.BeginForm("Forecast", "Park", new { id = Model.Id, name = Model.ParkName }, FormMethod.Post))
+{
 
+    <div id="radiobuttons">
+        <p>Display temperature in:</p>
+        <divid id="buttons">
+            @Html.RadioButtonFor(m => m.IsFahrenheit, true) F
+            @Html.RadioButtonFor(m => m.IsFahrenheit, false) C
 
-        @{
-            for (int i = 0; i < Model.Count; i++)
-            {
-                if (i == 0)
-                {
-                    <tr>
-                        <td>
-                            @using (Html.BeginForm("Forecast", "Park", new { id = Model[i].IsFarenheit }, FormMethod.Get, null))
-                            {
-                                <div>
-                                    @Html.RadioButtonFor(m => Model[i].IsFarenheit, 1, true)F
-                                    @Html.RadioButtonFor(m => Model[i].IsFarenheit, 0, false)C
-                                    <button>submit</button>
-                                </div>
-                            }
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Day</td>
-                        <td>Description</td>
-                        <td>High</td>
-                        <td>Low</td>
-                        <td>Recommended Attire</td>
-                    </tr>
-                }
+            <button>submit</button>
+        </divid>
+    </div>
 
-                <tr class="forecast">
-                    <td>@Model[i].GetDay()</td>
-                    <td>@Model[i].ForeCast</td>
-                    <td>@Model[i].GetHighTemp()</td>
-                    <td>@Model[i].GetLowTemp()</td>
-                    <td>@Model[i].RecommendedAction()</td>
-                    <td></td>
+}
+
+<div id="bigdiv">
+    @{List<Forecast> list = Model.GetForecast(Model.Id);
+        foreach (Forecast f in list)
+        {
+            <div class="forecastcolumn">
+                <div class="day">@f.GetDay()</div>
+                <div class="image"><img src="~/Content/img/weather/@(f.ForeCast).png" /></div>
+                <div class="low">
+                    Low:
+                    @if (Model.IsFahrenheit)
+                    {
+                    @(f.Low)<p>°F</p>
                     }
-                </tr>
-            }
+                    else
+                    {
+                    @Model.GetTempInCelsius(f.Low)<p>°C</p>
+                    }
+                </div>
+                <div class="high">
+                    High:
+                    @if (Model.IsFahrenheit)
+                    {
+                    @f.High<p>°F</p>
+                    }
+                    else
+                    {
+                        @Model.GetTempInCelsius(f.High)<p>°C</p>
+                                        }
+                </div>
+                <div class="recommendation">
+                    <p>We recommend you:</p>
+                    @f.RecommendedAction()
+                </div>
+            </div>
         }
-    </table>
-
-
-
-
+    }
 </div>
+

@@ -18,51 +18,52 @@
 </div>
 
 }
+<div id="tablediv">
+    <table>
+        <tr>
+            <td>Day</td>
+            <td>Description</td>
+            <td>Low</td>
+            <td>High</td>
+            <td>Recommended Attire</td>
+        </tr>
+        @{List<Forecast> list = Model.GetForecast(Model.Id);
+            foreach (Forecast f in list)
+            {
+                <tr class="forecast">
+                    <td>@f.GetDay()</td>
+                    <td class="weatherpic"><img src="~/Content/img/weather/@(f.ForeCast).png"/></td>
 
-<table>
-    <tr>
-        <td>Day</td>
-        <td>Description</td>
-        <td>Low</td>
-        <td>High</td>
-        <td>Recommended Attire</td>
-    </tr>
-    @{List<Forecast> list = Model.GetForecast(Model.Id);
-    foreach (Forecast f in list)
-    {
-    <tr>
-        <td>@f.GetDay()</td>
-        <td>@f.ForeCast</td>
+                    @if (Model.IsFahrenheit)
+                    {
+                        <td>
+                            @f.Low
+                        </td>
+                    }
+                    else
+                    {
+                        <td>
+                            @Model.GetTempInCelsius(f.Low)
+                        </td>
+                    }
+                    @if (Model.IsFahrenheit)
+                    {
+                        <td>
+                            @f.High
+                        </td>
+                    }
+                    else
+                    {
+                        <td>
+                            @Model.GetTempInCelsius(f.High)
+                        </td>
+                    }
+               
+                    <td>@f.RecommendedAction()</td>
 
-        @if (Model.IsFahrenheit)
-        {
-        <td>
-            @f.Low
-        </td>
+
+                </tr>
+            }
         }
-        else
-        {
-        <td>
-        @Model.GetTempInCelsius(f.Low)
-        </td>
-        } 
-        @if (Model.IsFahrenheit)
-        {
-            <td>
-                @f.High
-            </td>
-        }
-        else
-        {
-            <td>
-                @Model.GetTempInCelsius(f.High)
-            </td>
-        }
-        <td>
-<td>@f.RecommendedAction()</td>
-
-
-    </tr>
-    }
-    }
-</table>
+    </table>
+</div>

@@ -48,10 +48,10 @@ namespace Capstone.Web.Models
         //    return id;
         //}
 
-        public double GetTempInCelsius(double temp)
+        public int GetTempInCelsius(double temp)
         {
             double tempInCelsius = ((temp - 32) * (double)(.56));
-            return tempInCelsius;
+            return (int)tempInCelsius;
         }
     }
 }

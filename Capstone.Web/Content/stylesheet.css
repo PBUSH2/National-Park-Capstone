@@ -1,5 +1,6 @@
 ﻿/* Style Reset */
 @import url('stylesheet.css');
+
 body {
     margin: 0;
     display: flex;
@@ -11,7 +12,6 @@ body {
 header {
     background-color: #333333;
     padding: 10px;
-    
 }
 
     header p {
@@ -170,26 +170,32 @@ section.result {
     margin-left: auto;
     margin-right: auto;
 }
-#01{
-    display:inline-block;
-    width:10px;
-    height:10px;
+
+#01 {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
 }
-#park{
-    display:flex;
+
+#park {
+    display: flex;
 }
-#park img{
-    width:40%;
-    padding:10px;
+
+    #park img {
+        width: 40%;
+        padding: 10px;
+    }
+
+#parkinfo {
+    display: inline-block;
+    width: 50%;
 }
-#parkinfo{
-    display:inline-block;
-    width:50%;
-}
-.forecast:nth-child(even){
+
+.forecast:nth-child(even) {
     background-color: lightgray;
 }
-table{
+
+table {
     width: 70%;
     height: 300px;
     position: fixed;
@@ -198,48 +204,129 @@ table{
     margin-top: -75px;
     top: 50%;
     left: 15%;
-
-
-   
-}
-#parklink{
-    text-decoration:none;
-
 }
 
-#surveyresult{
+#parklink {
+    text-decoration: none;
+}
+
+#surveyresult {
     margin-left: 40%;
 }
-.survey div{
+
+.survey div {
     margin: 10px;
     margin-left: 40%;
 }
-#detailimage{
+
+#detailimage {
     margin: 10px;
     display: inline-block;
     width: 500px;
 }
-#wholedetail{
+
+#wholedetail {
     margin-left: 15%;
     font-family: sans-serif;
 }
-#topdiv{
-    display:flex;
+
+#topdiv {
+    display: flex;
 }
-#topdiv div{
-    display:inline-block;
-    margin-left: 10%;
-    width: 30%;
-}
-#quote{
-    font-size:larger;
+
+    #topdiv div {
+        display: inline-block;
+        margin-left: 10%;
+        width: 30%;
+    }
+
+#quote {
+    font-size: larger;
     font-style: italic;
     margin-bottom: 15px;
 }
-#person{
+
+#person {
     margin-bottom: 100px;
 }
-#radiobuttons{
-    position: relative;
-    top: -90px;
+
+#radiobuttons {
+   
+    margin-top: 5px;
+    margin-bottom: 5px;
+   
+}
+
+.weatherpic {
+    display: inline-block;
+    width: 15%;
+}
+
+.forecastcolumn img{
+    display: inline-block;
+    width: 45%; 
+}
+    
+.forecastcolumn{
+    display: inline-block;
+    width: 15%;
+    margin: 10px;
+    border: 1px solid black;
+    vertical-align: top;
+    height:400px;
+    background-color: lightblue;
+    
+}
+
+#bigdiv{
+    vertical-align: top;
+    margin-left: 10%   
+}
+div div div p{
+    display: inline;
+}
+.day{
+    border:1px solid blue;
+    background-color: darkblue;
+    text-align:center;
+    color: yellow;
+    font-size: larger;
+    font-weight: bold;
+    font-family: sans-serif;
+
+}
+.low{
+    text-align:center;
+    margin-bottom: 15px;
+
+}
+.high{
+    text-align: Center;
+    margin-bottom: 15px;
+
+}
+.image{
+    text-align: center
+}
+.image img{
+    width: 100%
+}
+#radiobuttons p{
+    display:inline;
+}
+.recommendation{
+    text-align: center;
+}
+.recommendation p{
+    font-weight: bold;
+}
+#forecastheading{
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+#detaillink{
+    position: center;
+}
+#detaillinkdiv{
+    text-align:center;
 }
