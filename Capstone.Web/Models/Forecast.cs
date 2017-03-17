@@ -60,7 +60,7 @@ namespace Capstone.Web.Models
         {
             if(FiveDayForecastValue == 1)
             {
-                return DateTime.Now.DayOfWeek.ToString();
+                return "Today";
             }
             else if (FiveDayForecastValue == 2)
             {

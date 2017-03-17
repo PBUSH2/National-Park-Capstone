@@ -65,7 +65,7 @@ footer {
 #main {
     width: 100%;
     flex: 1;
-    background-color: #e6ffe6;
+    background-color: white;
 }
 
 
@@ -77,7 +77,7 @@ footer {
     justify-content: center;
 }
 
-.account {
+/*.account {
     vertical-align: top;
     width: 350px;
     margin-right: 30px;
@@ -111,7 +111,7 @@ footer {
 
 #checking {
     color: orange;
-}
+}*/
 
 
 /* Form Layout */
@@ -185,9 +185,11 @@ section.result {
 #locatedin{
     text-align: center;
 }
-    #park img {
+    #indeximage{
         width: 40%;
         padding: 10px;
+
+     
     }
 
 #parkinfo {
@@ -262,6 +264,7 @@ table {
     margin-right:15px;
     margin-bottom: 30px;
     text-align: center;
+    background-color: white;
 }
 #quote {
     font-size: x-large;

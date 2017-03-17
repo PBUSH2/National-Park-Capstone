@@ -20,7 +20,7 @@ namespace Capstone.Web.Controllers
         [HttpGet]
         public ActionResult Index()
         {
-            return View();
+            return View("Index");
         }
         [HttpPost]
         public ActionResult Index(Survey survey)
